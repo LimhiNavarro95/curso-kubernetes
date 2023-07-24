@@ -43,3 +43,6 @@ EXPOSE $PORT
 
 #ENTRYPOINT ["java", "-jar", "msvc-usuarios-0.0.1-SNAPSHOT.jar"]
 CMD ["java", "-jar", "msvc-usuarios-0.0.1-SNAPSHOT.jar"]
+
+# CMD con pauta, delay para permitir que el servicio se levante despues de la BD y pueda conectar correctamente para aws ECS
+#CMD sleep 20 & java -jar msvc-usuarios-0.0.1-SNAPSHOT.jar

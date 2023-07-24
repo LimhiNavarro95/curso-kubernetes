@@ -28,3 +28,5 @@ EXPOSE 8002
 
 #ENTRYPOINT ["java", "-jar", "msvc-cursos-0.0.1-SNAPSHOT.jar"]
 CMD ["java", "-jar", "msvc-cursos-0.0.1-SNAPSHOT.jar"]
+
+#cmmd sleep 10 && java -jar msvc-cursos-0.0.1-SNAPSHOT.jar

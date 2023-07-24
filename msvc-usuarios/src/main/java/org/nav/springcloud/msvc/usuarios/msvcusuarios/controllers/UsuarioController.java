@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import org.nav.springcloud.msvc.usuarios.msvcusuarios.models.entity.Usuario;
 import org.nav.springcloud.msvc.usuarios.msvcusuarios.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -17,6 +19,14 @@ public class UsuarioController {
 
   @Autowired
   private UsuarioService usuarioService;
+
+  //simular un punto de quiebre
+  @Autowired
+  private ApplicationContext context;
+  @GetMapping("/crash")
+  public void crash(){
+    ((ConfigurableApplicationContext) context).close();
+  }
 
   @GetMapping("/listar")
   public List<Usuario> listar(){

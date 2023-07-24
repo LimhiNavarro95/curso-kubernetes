@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: msvc-cursos
+spec:
+  #se establece LoadBalancer por que hay comunicacion interna y externa
+  type: LoadBalancer
+  ports:
+    - port: 8002
+      protocol: TCP
+      targetPort: 8002
+  selector:
+    app: msvc-cursos

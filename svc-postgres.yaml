@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  #Es importante mantener mismo nombre de host que esta en el docker-compose
+  name: postgres14
+spec:
+  ports:
+    - port: 5432
+      protocol: TCP
+      targetPort: 5432
+  selector:
+    #mismo nombre de role que el deployment para seleccionar el mismo conjunto de pod
+    role: postgres
+  #se pone ClusterIP para comunicacion interna
+  type: ClusterIP
