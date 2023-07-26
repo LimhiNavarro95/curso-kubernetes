@@ -23,3 +23,13 @@ spec:
               value: root
             - name: POSTGRES_DB
               value: msvc_cursos
+          #En volumeMounts se utiliza el volumen definido
+          volumeMounts:
+            - name: data-postgres
+              mountPath: /var/lib/postgresql/data
+      #definicion de volumen
+      volumes:
+        - name: data-postgres
+          hostPath:
+            path: /var/lib/postgresql/data
+            type: DirectoryOrCreate
