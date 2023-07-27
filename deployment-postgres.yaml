@@ -19,10 +19,17 @@ spec:
           ports:
             - containerPort: 5432
           env:
+            #Se obtienen los valores por configmap
             - name: POSTGRES_PASSWORD
-              value: root
+              valueFrom:
+                configMapKeyRef:
+                  name: msvc-cursos
+                  key: password
             - name: POSTGRES_DB
-              value: msvc_cursos
+              valueFrom:
+                configMapKeyRef:
+                  name: msvc-cursos
+                  key: database
           #En volumeMounts se utiliza el volumen definido
           volumeMounts:
             - name: data-postgres
