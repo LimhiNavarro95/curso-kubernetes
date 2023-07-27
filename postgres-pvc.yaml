@@ -1,0 +1,15 @@
+#Persistent Volume Claim -> reclama el volumen de datos
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+spec:
+  #Nombre del volumen a reclamar
+  volumeName: postgres-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  #espacio a ocupar, igual que el PV
+  resources:
+    requests:
+      storage: 2Gi
