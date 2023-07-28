@@ -56,6 +56,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+
+		<!-- Spring cloud kubernetes - "all", todas las dependencias -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-kubernetes-fabric8-all</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>

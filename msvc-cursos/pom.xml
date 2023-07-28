@@ -61,6 +61,12 @@
 			<artifactId>jackson-databind</artifactId>
 		</dependency>-->
 
+		<!-- Spring cloud kubernetes - "all", todas las dependencias -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-kubernetes-fabric8-all</artifactId>
+		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
