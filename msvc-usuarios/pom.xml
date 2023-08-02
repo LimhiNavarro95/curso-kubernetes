@@ -63,6 +63,12 @@
 			<artifactId>spring-cloud-starter-kubernetes-fabric8-all</artifactId>
 		</dependency>
 
+		<!-- Actuator -> health check -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>

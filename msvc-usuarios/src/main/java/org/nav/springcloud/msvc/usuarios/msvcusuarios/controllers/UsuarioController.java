@@ -6,6 +6,7 @@ import org.nav.springcloud.msvc.usuarios.msvcusuarios.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -19,6 +20,8 @@ public class UsuarioController {
 
   @Autowired
   private UsuarioService usuarioService;
+  @Autowired
+  private Environment environment;
 
   //simular un punto de quiebre
   @Autowired
@@ -26,6 +29,17 @@ public class UsuarioController {
   @GetMapping("/crash")
   public void crash(){
     ((ConfigurableApplicationContext) context).close();
+  }
+
+  //obtiene informacion del Pod
+  @GetMapping("/pod-info")
+  public ResponseEntity<?> getPodInfo(){
+
+    Map<String, Object> body = new HashMap<>();
+    body.put("pod-info", environment.getProperty("MY_POD_NAME") + " - " + environment.getProperty("MY_POD_IP"));
+    body.put("texto", environment.getProperty("config.texto"));
+
+    return ResponseEntity.ok(body);
   }
 
   @GetMapping("/listar")

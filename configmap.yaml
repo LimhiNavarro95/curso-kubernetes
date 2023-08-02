@@ -9,6 +9,24 @@ data:
   #username: root
   #password: root
   curso_url: msvc-cursos:8002
+  #Propiedades de la aplicacion de msvc-usuarios, igual que el archivo properties
+  application.yaml: |-
+    config:
+      texto: Configurando ambiente por defecto
+    ---
+    spring:
+      config:
+        activate:
+          on-profile: dev
+    config:
+      texto: Configurando ambiente de desarrollo
+    ---
+    spring:
+      config:
+        activate:
+          on-profile: prod
+    config:
+      texto: Configurando ambiente de produccion
 ---
 apiVersion: v1
 kind: ConfigMap
